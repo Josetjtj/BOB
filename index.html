@@ -1,0 +1,1113 @@
+<!DOCTYPE html><html><head><title>Bob's Nightmare</title><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui=1"><meta charset="UTF-8"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="description" content=""><link rel="manifest" href="manifest.json"><link rel="icon" type="image/png" href="icon64.png"><link rel="apple-touch-icon" sizes="180x180" href="icon180.png"><link rel="icon" type="image/png" sizes="32x32" href="icon32.png"><link rel="icon" type="image/png" sizes="16x16" href="icon16.png"><style>html,body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  overflow:hidden;
+  font-family: Verdana;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#canvaswrapper {
+  text-align: center ;
+}
+</style><style>@font-face { font-family: "BitCell" ; src: url("fonts/BitCell.ttf") format("truetype"); }</style><style>@font-face { font-family: "MisterPixel" ; src: url("fonts/MisterPixel.ttf") format("truetype"); }</style><script>window.fonts = ["BitCell","MisterPixel"]</script></head><body class="noselect custom-cursor" oncontextmenu="return false;"><div id="canvaswrapper"></div><script type="text/javascript">var resources = {"images":[{"file":"coin.png","version":1,"size":208,"properties":{"frames":1,"fps":5}},{"file":"cursor.png","version":47,"size":153,"properties":{"frames":1,"fps":5}},{"file":"cursor_x.png","version":9,"size":342,"properties":{"frames":5,"fps":5}},{"file":"dash_power.png","version":15,"size":385,"properties":{"frames":2,"fps":2}},{"file":"dif.png","version":29,"size":756,"properties":{"frames":4,"fps":5}},{"file":"double_jump.png","version":8,"size":379,"properties":{"frames":2,"fps":2}},{"file":"enemy.png","version":1,"size":474,"properties":{"frames":2,"fps":5}},{"file":"enemy2.png","version":1,"size":490,"properties":{"frames":2,"fps":5}},{"file":"hearts_1.png","version":33,"size":206,"properties":{"frames":1,"fps":5}},{"file":"hearts_2.png","version":6,"size":257,"properties":{"frames":1,"fps":5}},{"file":"hearts_3.png","version":8,"size":273,"properties":{"frames":1,"fps":5}},{"file":"icon.png","version":13,"size":325,"properties":{"frames":1,"fps":5}},{"file":"player_hurt.png","version":1,"size":456,"properties":{"frames":1,"fps":5}},{"file":"player_idle.png","version":1,"size":493,"properties":{"frames":2,"fps":5}},{"file":"player_run.png","version":1,"size":820,"properties":{"frames":4,"fps":5}},{"file":"poster.png","version":1,"size":38091,"properties":{"frames":1,"fps":5}},{"file":"speed_power.png","version":3,"size":378,"properties":{"frames":2,"fps":5}},{"file":"spell_power.png","version":2,"size":379,"properties":{"frames":2,"fps":5}},{"file":"tileset.png","version":3,"size":5461,"properties":{"frames":1,"fps":5}}],"assets":[],"maps":{"bg":"{\"width\":16,\"height\":10,\"block_width\":16,\"block_height\":16,\"sprites\":[0,\"tileset:4,10\",\"tileset:2,10\",\"tileset:3,10\",\"tileset:2,9\",\"tileset:3,9\",\"tileset:2,8\",\"tileset:3,8\",\"tileset:2,7\",\"tileset:3,7\"],\"data\":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,5,1,1,1,1,1,1,1,1,1,6,7,1,1,1,1,1,1,6,7,1,1,1,1,1,1,8,9,1,1,1,1,1,1,8,9,1,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,7,1,1,1,1,6,7,1,1,1,6,7,1,1,1,8,9,1,1,1,1,8,9,1,1,1,8,9,1,1,1,1,1,1,2,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,5]}","elements":"{\"width\":16,\"height\":10,\"block_width\":16,\"block_height\":16,\"sprites\":[0,\"tileset:3,6\",\"tileset:4,6\",\"tileset:6,6\",\"tileset:2,5\",\"tileset:5,6\",\"tileset:2,4\",\"tileset:2,3\",\"tileset:6,10\"],\"data\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,1,4,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,8,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}","gameover":"{\"width\":40,\"height\":15,\"block_width\":16,\"block_height\":16,\"sprites\":[0,\"double_jump\",\"enemy:0,1\",\"enemy:1,1\",\"enemy2:0,1\",\"enemy2:1,1\",\"tileset:6,5\",\"enemy:0,0\",\"enemy:1,0\",\"enemy2:0,0\",\"enemy2:1,0\",\"tileset:4,3\",\"tileset:6,0\",\"tileset:6,3\",\"tileset:6,4\",\"tileset:6,2\",\"coin\",\"tileset:6,1\",\"player_hurt:0,1\",\"player_hurt:1,1\",\"player_hurt:0,0\",\"player_hurt:1,0\"],\"data\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,3,0,4,5,0,0,0,2,3,0,0,0,0,0,0,0,0,0,0,0,6,0,6,0,0,0,0,0,4,5,0,0,0,0,0,0,0,0,0,7,8,0,9,10,0,0,0,7,8,0,0,0,0,0,0,0,0,0,0,0,6,0,6,0,0,0,0,0,9,10,0,0,0,0,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,6,0,0,0,0,0,0,0,0,0,0,0,0,7,8,0,0,11,12,0,0,0,12,0,0,13,11,11,0,13,0,0,11,0,4,5,0,0,6,6,0,0,0,14,10,0,0,0,2,3,0,0,0,0,0,0,11,0,0,15,0,13,0,13,0,13,0,0,0,15,0,11,0,0,9,10,0,0,6,16,6,0,14,14,14,14,0,0,7,8,0,0,0,0,0,0,11,0,0,17,0,15,0,15,0,15,11,11,0,17,11,0,0,0,0,0,0,0,6,6,0,0,0,14,0,0,14,0,0,0,0,0,0,0,0,0,11,0,0,12,0,17,0,17,0,17,0,0,0,12,0,11,0,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,11,0,0,12,0,12,0,12,11,11,0,12,11,0,0,0,7,8,0,11,0,0,11,0,0,11,0,0,11,0,0,0,0,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,11,0,0,11,0,0,11,0,0,0,0,0,7,8,0,0,0,13,11,11,0,11,0,11,0,11,0,18,19,11,0,13,11,11,0,0,0,11,11,11,11,0,0,11,0,0,11,0,0,0,0,0,0,0,0,0,0,15,0,11,0,11,11,11,0,11,0,20,21,11,0,13,0,0,0,0,0,11,0,0,11,0,0,11,0,0,11,0,0,0,0,0,0,0,0,0,0,17,0,0,0,11,0,11,0,11,0,11,0,11,0,15,11,11,0,0,0,11,0,0,11,0,0,0,0,11,11,11,0,0,0,0,0,0,0,0,0,12,11,11,0,0,11,0,2,3,11,0,11,0,0,17,0,0,4,5,0,0,0,0,0,0,0,11,0,0,0,2,3,0,0,0,0,0,4,5,0,0,0,0,0,0,0,0,7,8,0,0,0,0,0,12,11,11,9,10,0,0,0,0,0,0,0,0,0,0,0,7,8,0,0,0,0,0,9,10]}","level":"{\"width\":16,\"height\":10,\"block_width\":16,\"block_height\":16,\"sprites\":[0,\"tileset:0,2\",\"tileset:1,2\",\"tileset:2,2\",\"tileset:0,0\",\"tileset:1,0\",\"tileset:2,0\"],\"data\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,0,0,1,2,3,0,0,1,2,3,0,0,0,4,5,6,0,0,4,5,6,0,0,4,5,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}"},"sounds":[],"music":[{"file":"hardrock.mp3","version":1,"size":959685,"properties":{}}]};
+var graphics = "M1";
+
+</script><script type="text/javascript">var orientation = 'landscape' ;
+var aspect = 'free' ;
+var ms_libs = [] ;
+window.skip_service_worker = true;
+window.exported_project = true;
+</script><script src="runner_v1_i.js"></script><script src="microengine.js"></script></body><script id="code" type="text/x-microscript">
+
+init = function()
+  mode = "meniu"
+
+  gameInit()
+  UIinit()
+end
+
+update = function()
+  if mode == "game" then
+    gameUpdate()
+    UIupdate()
+  elsif mode == "meniu" then
+    MeniuUpdate()
+  end
+end
+
+draw = function()
+  screen.setFont("MisterPixel")
+  if mode == "game" then
+    if gameOver == 1 then
+      GameOver()
+    else
+      gameDraw()
+      UI()
+    end
+  elsif mode == "meniu" then
+    MeniuDraw()
+  end
+end
+
+// Quick Engine version 1.1
+// https://microstudio.dev/i/gilles/quickengine/
+
+Quick = if Quick then Quick else object end end
+
+Quick.init = function()
+  background ="rgb(88,162,198)"
+  objects = []
+  psprites = []
+  sprites = []
+  maps = []
+  gravity = 9.8
+  friction = 1
+  contact_friction = 50
+  ground = -100
+  grid = []
+  fps = 60
+  avg_dt = 16
+  last_draw = 0
+  tick = 0
+  camera = object
+    x = 0
+    y = 0
+    zoom = 1
+    move = function(px,py)
+      target = px or py
+      target_x = px
+      target_y = py
+    end
+  end
+end
+
+Quick.update = function()
+  tick += 1
+  //if tick%2 == 0 then return end
+  for s in sprites
+    if s.physics and s.fall and not s.fixed then
+      s.ay -= gravity*10
+    end
+  end
+  
+  for s in sprites
+    if not s.fixed then
+      s.vx += s.ax/60
+      s.vy += s.ay/60
+      
+      s.contactx = 0
+      s.contacty = 0
+      
+      s.ax = 0
+      s.ay = 0
+    end
+  end
+  
+  for s in sprites
+    s.grounded = 0
+    
+    if s.solid then
+      local dy = s.y-s.height/2-ground
+      if dy<0 then
+        s.vy -= dy*30
+        s.vy *= .5
+        s.grounded = 1
+      end
+    end
+  end
+  
+  for i=0 to sprites.length-2 by 1
+    local s1 = sprites[i]
+    local s2 = sprites[i+1]
+    if s1.x+s1.y-s2.x-s2.y<0 then
+      sprites[i] = s2
+      sprites[i+1] = s1
+    end
+  end
+  
+  for s in sprites
+    for m in maps
+      spriteMapCollision(s,m)
+    end
+  end
+  
+  for i=0 to sprites.length-2 by 1
+    local s1 = sprites[i]
+    
+    if not s1.solid then continue end
+    
+    for j=i+1 to min(i+10,sprites.length-1) by 1
+      local s2 = sprites[j]
+      
+      if not s2.solid then continue end
+      
+      local s1x = s1.x+s1.vx/60
+      local s1y = s1.y+s1.vy/60
+      local s2x = s2.x+s2.vx/60
+      local s2y = s2.y+s2.vy/60
+      
+      local dx = abs(s2x-s1x)
+      local dy = abs(s2y-s1y)
+      
+      dx -= (s1.width+s2.width)/2
+      dy -= (s1.height+s2.height)/2
+
+      if dx<0 and dy<0 then
+        if dx>dy then
+          if s2.x>s1.x then
+            s2.vx -= dx*30
+            s1.vx += dx*30
+          else
+            s2.vx += dx*30
+            s1.vx -= dx*30
+          end
+          local dvy = s2.vy-s1.vy
+          s2.vy -= dvy*.1
+          s1.vy += dvy*.1
+          local dvx = s2.vx-s1.vx
+          s2.vx -= dvx*.1
+          s1.vx += dvx*.1
+        else
+          if s2.y>s1.y then
+            s2.vy -= dy*30
+            s1.vy += dy*30
+            s2.grounded = 1
+          else
+            s2.vy += dy*30
+            s1.vy -= dy*30
+            s1.grounded = 1
+          end
+          local dvx = s2.vx-s1.vx
+          s2.vx -= dvx*.1
+          s1.vx += dvx*.1
+          local dvy = s2.vy-s1.vy
+          s2.vy -= dvy*.1
+          s1.vy += dvy*.1
+        end
+      end
+     end
+  end
+  
+  for s in sprites
+    if s.solid then
+    end
+  end
+  
+  positionUpdate()
+  position_updated = 1
+  
+  // friction
+  for s in sprites
+    if not s.fixed then
+      local f = max(0,min(1,1-friction*.01))
+
+      s.vx *= f
+      s.vy *= f
+    end
+  end
+  
+end
+
+Quick.positionUpdate = function()
+  for s in sprites
+    if not s.fixed then
+      s.x += s.vx/fps
+      s.y += s.vy/fps
+    end
+  end
+
+  local r = .05*60/fps
+  
+  if camera.target then
+    camera.x += (camera.target_x-camera.x)*r
+    camera.y += (camera.target_y-camera.y)*r
+  end
+end
+
+Quick.draw = function()
+  local time = system.time()
+  if last_time then
+    local dt = time-last_time
+    if dt<100 and dt>0 then
+      if tick<60 then
+        avg_dt = max(1,avg_dt*.9+dt*.1)
+      else
+        avg_dt = max(1,avg_dt*.999+dt*.001)
+      end
+      fps = max(60,1000/avg_dt)
+    end
+  end
+  
+  last_time = time
+  
+  if not position_updated then
+    positionUpdate()
+  end
+  
+  position_updated = 0
+  
+  if background then
+    screen.fillRect(0,0,screen.width,screen.height,background)
+  end
+  local angle = random.next()*PI*2
+  local cx = camera.x+camera.shake*sin(angle)
+  local cy = camera.y+camera.shake*cos(angle)
+  local zoom = camera.zoom
+  for o in objects
+    if not o.display then continue end
+    if o.type == "sprite" then
+      if o.hflip then screen.setDrawScale(-1,1) end
+      if o.vflip then screen.setDrawScale(1,-1) end
+      if o.hflip and o.vflip then screen.setDrawScale(-1,-1) end
+      if o.rotation then
+        screen.setDrawRotation(o.rotation)
+        screen.drawSprite(o.name,(o.x-cx)*zoom,(o.y-cy)*zoom,o.width*zoom,o.height*zoom)
+        screen.setDrawRotation(0)
+      else
+        screen.drawSprite(o.name,(o.x-cx)*zoom,(o.y-cy)*zoom,o.width*zoom,o.height*zoom)
+      end
+      screen.setDrawScale(1,1)
+    elsif o.type == "map" then
+      screen.drawMap(o.map,(o.x-cx)*zoom,(o.y-cy)*zoom,o.width*zoom,o.height*zoom)
+    elsif o.type == "text" then
+      screen.drawText(o.text,(o.x-cx)*zoom,(o.y-cy)*zoom,o.height*zoom,o.color)
+    end
+  end
+  
+  return
+end
+
+Quick.addSprite = function(name,x,y,width,height)
+  width = if width then width else 20 end
+  height = if height then height else width end
+
+  local sprite = object
+    type = "sprite"
+    name = name
+    x = x
+    y = y
+    vx = 0
+    vy = 0
+    width = width
+    height = height
+    mass = 1
+    fall = 1
+    friction = -1
+    fixed = 0
+    display = 1
+    physics = 1
+    solid = 1
+    bounciness = 0
+    contact_friction = 1
+  end
+  
+  sprites.push(sprite)
+  objects.push(sprite)
+  
+  return sprite
+end
+
+Quick.addMap = function(name,x,y,width,height)
+  width = if width then width else 100 end
+  height = if height then height else width end
+
+  local map = object
+    type = "map"
+    name = name
+    x = x
+    y = y
+    map = global.maps[name]
+    
+    width = width
+    height = height
+    display = 1
+    physics = 1
+    solid = 1
+    hollow = object end
+  
+    setHollow = function(name)
+      hollow[name] = 1
+    end
+    
+    setSolid = function(name)
+      hollow[name] = 0
+    end
+    
+    extractSprites = function(name)
+      local list = []
+      local blockw = width/map.width
+      local blockh = height/map.height
+      local ox = x-width/2
+      local oy = y-height/2
+      local m = map.clone()
+      map = m
+      for i=0 to m.width-1
+        for j=0 to m.height-1
+          if m.get(i,j) == name then
+            m.set(i,j,0)
+            local s = Quick.addSprite(name,ox+(i+.5)*blockw,oy+(j+.5)*blockh,blockw,blockh)
+            
+            list.push(s)
+          end
+        end
+      end
+      
+      m.update()
+      
+      list
+    end
+  end
+  
+  maps.push(map)
+  objects.push(map)
+  return map
+end
+
+Quick.isMapCellSolid = function(m,x,y)
+  local cell = m.map.get(x,y)
+  cell and not m.hollow[cell.split(":")[0]]
+end
+
+Quick.spriteMapCollision = function(s,m)
+
+  if m.solid and s.solid then
+    local x1 = s.x-s.width*.5
+    local x2 = s.x+s.width*.5
+    local y1 = s.y-s.height*.5
+    local y2 = s.y+s.height*.5
+    local cx1 = floor((x1-m.x+m.width/2)/m.width*m.map.width)
+    local cx2 = floor((x2-m.x+m.width/2)/m.width*m.map.width)
+    local cy1 = floor((y1-m.y+m.height/2)/m.height*m.map.height)
+    local cy2 = floor((y2-m.y+m.height/2)/m.height*m.map.height)
+    
+    local scx1 = floor((s.x-s.width*.3-m.x+m.width/2)/m.width*m.map.width)
+    local scx2 = floor((s.x+s.width*.3-m.x+m.width/2)/m.width*m.map.width)
+    local scy1 = floor((s.y-s.height*.3-m.y+m.height/2)/m.height*m.map.height)
+    local scy2 = floor((s.y+s.height*.3-m.y+m.height/2)/m.height*m.map.height)
+
+    for i=scx1 to scx2
+      if s.vy<=0 then
+        if isMapCellSolid(m,i,cy1) and not isMapCellSolid(m,i,cy1+1) then
+          s.vy = 0
+          s.y = m.y-m.height*.5+(cy1+1)*m.height/m.map.height+s.height/2-.01
+          s.grounded = 1
+          break
+        end
+      elsif s.vy>0 then
+        if isMapCellSolid(m,i,cy2) and not isMapCellSolid(m,i,cy2-1) then
+          s.vy = 0
+          s.y = m.y-m.height*.5+cy2*m.height/m.map.height-s.height/2
+          break
+        end
+      end
+    end
+    
+    for i=scy1 to scy2
+      if s.vx<0 then
+        if isMapCellSolid(m,cx1,i) and not isMapCellSolid(m,cx1+1,i) then
+          s.vx = 0
+          s.x = m.x-m.width*.5+(cx1+1)*m.width/m.map.width+s.width/2
+          break
+        end
+      end
+      if s.vx>0 then
+        if isMapCellSolid(m,cx2,i) and not isMapCellSolid(m,cx2-1,i) then
+          s.vx = 0
+          s.x = m.x-m.width*.5+cx2*m.width/m.map.width-s.width/2
+          break
+        end
+      end
+    end
+  end
+end
+
+Quick.mapCellAt = function(map,x,y)
+  local blockw = map.width/map.map.width
+  local blockh = map.height/map.map.height
+  local cx = floor((x-(map.x-map.width/2))/blockw)
+  local cy = floor((y-(map.y-map.height/2))/blockh)
+  return map.map.get(cx,cy)
+end
+
+Quick.mapCollision = function(sprite,map)
+  local blockw = map.width/map.map.width
+  local blockh = map.height/map.map.height
+  local cx = floor((sprite.x-(map.x-map.width/2))/blockw)
+  local cy = floor((sprite.y-(map.y-map.height/2))/blockh)
+  return map.map.get(cx,cy)
+end
+
+Quick.spriteCollision = function(s1,s2)
+  max(0,min((s1.width+s2.width)/2-abs(s1.x-s2.x),(s1.height+s2.height)/2-abs(s1.y-s2.y)))
+end
+
+Quick.addText = function(text,x,y,height=10)
+  local t = object
+    type = "text"
+    text = text
+    x = x
+    y = y
+    display = 1
+    height = height
+    font = "BitCell"
+    color = "rgb(255,255,255)"
+  end
+  
+  objects.push(t)
+  return t
+end
+
+Quick.remove = function(o)
+  if o.type == "sprite" then
+    local index = sprites.indexOf(o)
+    if index>=0 then sprites.remove(index) end
+  end
+  local index = objects.indexOf(o)
+  if index>=0 then objects.remove(index) end
+end
+
+Quick.createGroup = function()
+  object
+  end
+end
+
+
+gameInit = function()
+  Quick.init()
+  Quick.gravity = 50
+  Quick.friction = 6
+  Quick.ground = -1000
+
+  gameOver = 0
+
+  Coins = 0
+  
+  dif = "easy"
+  
+  bg = Quick.addMap("bg",0,0,screen.width,screen.height)
+  bg.solid = 0
+  
+  elements = Quick.addMap("elements",0,0,300,200)
+  elements.solid = 0
+
+  level = Quick.addMap("level",0,0,300,200)
+
+  playerInit()
+  
+  BenemyInit()
+  
+  RenemyInit()
+  
+  heartsInit()
+  
+  cInit()
+
+  spawner = new Timer(3)
+  
+  Rspawner = new Timer(5)
+  
+  Cspawner = new Timer(6)
+  
+  CleanUp = new Timer(5)
+  
+  Diff = new Timer(30)
+  
+end
+//Player
+playerInit = function()
+  player = Quick.addSprite("player_idle",0,30,24)
+  
+  speed = 20
+  
+  MAXSPEED = 100
+
+  speedIn = false
+
+  JumpForce = 300
+
+  canJump = true
+  
+  Jumps = 2
+
+  dJumps = 0
+
+  canDoubleJump = false
+
+  dir = 0
+  
+  lives = 3
+  
+  Dashes = 0
+  
+  dash_power = 20
+end
+
+//Jump function()
+Jump = function()
+  player.vy += JumpForce
+end
+
+Movement = function()
+  //Speed limit
+  if player.vx > MAXSPEED then
+    player.vx = MAXSPEED
+  elsif player.vx < -MAXSPEED then
+    player.vx = -MAXSPEED
+  end
+  
+  if player.y <= -700 then
+    gameOver = 1
+  end
+  
+  //Left and right movement
+  if keyboard.RIGHT then
+    player.vx += speed
+    dir = 1
+  elsif keyboard.LEFT then
+    player.vx -= speed
+    dir = -1
+  else
+    player.vx = 0
+    dir = 0
+  end
+  //Speed increase
+  if speedIn == true then
+    MAXSPEED = 120
+  else
+    MAXSPEED = 100
+  end
+  
+  //Dashes
+  if Dashes > 0 and keyboard.press.E then
+    if dir == 1 then
+      player.x += dash_power
+      Dashes -= 1
+    elsif dir == -1 then
+      player.x -= dash_power
+      Dashes -= 1
+    end
+  end
+  // Jumping and Double Jumping
+  if canDoubleJump == true then
+    if canJump == true then
+      if player.grounded and keyboard.press.SPACE then
+        Jumps -= 1
+        Jump()
+      elsif player.grouned == false and Jumps > 0 and keyboard.press.SPACE then
+        Jumps -= 1
+        dJumps -= 1
+        Jump()
+      end
+    end
+    
+    if Jumps <= 0 and player.grounded == false then
+      canJump = false
+    elsif Jumps <= 0 and player.grounded then
+      Jumps = 2
+      canJump = true
+    end
+  else
+    if player.grounded and keyboard.press.SPACE then
+      Jump()
+    end
+  end
+  
+  if dJumps == 0 then
+    canDoubleJump = false
+  elsif dJumps > 0 then
+    canDoubleJump = true
+  end
+end
+//Player Animations
+PlayerAnims = function()
+  if dir == 1 then
+    player.name = "player_run"
+    player.hflip = 0
+  elsif dir == -1 then
+    player.name = "player_run"
+    player.hflip = 1
+  else
+    player.name = "player_idle"
+  end
+end
+//Benemy
+BenemyInit = function()
+  Benemies = []
+
+  espeed = 5
+end
+
+BenemyUpdate = function()
+  for e in Benemies
+    e.fall = 0
+    e.solid = 0
+    
+    e.vy -= espeed
+    
+    if Quick.spriteCollision(e,player) then
+      Benemies.removeElement(e)
+      Quick.remove(e)
+      player.name = "player_hurt"
+      lives -= 1
+    end
+  end
+end
+
+SpawnEnemy = function()
+  Benemies.push(Quick.addSprite('enemy',random.intInRange(-150,150),80,16,16))
+end
+//Renemy
+RenemyInit = function()
+  Renemies = []
+
+  Respeed = 5
+end
+
+RenemyUpdate = function()
+  for e in Renemies
+    e.fall = 0
+    e.solid = 0
+    
+    e.vy += Respeed
+    
+    if Quick.spriteCollision(e,player) then
+      Renemies.removeElement(e)
+      Quick.remove(e)
+      player.name = "player_hurt"
+      lives -= 1
+    end
+  end
+end
+
+SpawnRenemy = function()
+  Renemies.push(Quick.addSprite("enemy2",random.intInRange(-150,150),-80,16,16))
+end
+
+//Hearts
+heartsInit = function()
+  hearts = Quick.addSprite("hearts_3",-150,85,16,16)
+  hearts.solid = 0
+  hearts.fall = 0
+end
+
+heartsUpdate = function()
+  if lives == 3 then
+    hearts.name = "hearts_3"
+    hearts.width = 51
+  elsif lives == 2 then
+    hearts.name = "hearts_2"
+    hearts.width = 32
+  elsif lives == 1 then
+    hearts.name = "hearts_1"
+    hearts.width = 16
+  else
+    gameOver = 1
+  end
+end
+
+//Coin
+cInit = function()
+  coins = []
+end
+
+SpawnCoin = function()
+  coins.push(Quick.addSprite("coin",random.intInRange(-150,150),10,10))  
+end
+
+cUpdate = function()
+  for c in coins
+    c.solid = 0
+    c.fall = 0 
+
+    if Quick.spriteCollision(c,player) then
+      coins.removeElement(c)
+      Quick.remove(c)
+      Coins += 1
+    end
+  end
+  if Coins < 0 then
+    Coins = 0
+  end
+end
+
+//PowerUps
+powerInit = function()
+  dp = []
+end
+
+powerUpdate = function()
+  for d in dp
+    if Quick.spriteCollision(d,player) then
+      dp.removeElement(d)
+      Quick.remove(d)
+      canDash = true
+    end
+  end
+end
+
+SpawnDash = function()
+  dp.push(Quick.addSprite("dash_power"),random.intInRange(-150,150),10,16,16)
+end
+
+Diffculty = function()
+    if Rspawner.CheckTimer() then
+    SpawnRenemy()
+    if dif == "easy" then
+      espeed = 4
+    elsif dif == "medium" then
+      espeed = 8
+    elsif dif == "hard" then
+      espeed = 12
+    end
+    Rspawner.timer = 5
+  end
+  
+  if spawner.CheckTimer() then
+    SpawnEnemy()
+    if dif == "easy" then
+      Respeed = 2
+    elsif dif == "medium" then
+      Respeed = 5
+    elsif dif == "hard" then
+      Respeed = 10
+    end
+    spawner.timer = 3
+  end
+  
+  if Diff.CheckTimer() then
+    if dif == "easy" then
+      dif = "medium"
+    elsif dif == "medium" then
+      dif = "hard"
+    elsif dif == "hard" then
+      
+    end
+    Diff.timer = 60
+  end
+end
+
+gameUpdate = function()
+  Quick.update()
+  
+  Movement()
+  PlayerAnims()
+  
+  BenemyUpdate()
+  RenemyUpdate()
+  heartsUpdate()
+  cUpdate()
+  
+  spawner.update()
+  Rspawner.update()
+  Cspawner.update()
+  CleanUp.update()
+  
+  Diff.update()
+  
+  Diffculty()
+  
+  if CleanUp.CheckTimer() then
+    for c in coins
+      coins.removeElement(c)
+      Quick.remove(c)
+    end
+    CleanUp.timer = 8
+  end
+
+  if Cspawner.CheckTimer() then
+    SpawnCoin()
+    Cspawner.timer = 6
+  end
+end
+
+gameDraw = function()
+  Quick.draw()
+end
+
+//Taken from https://microstudio.dev/i/Mythril/randomextended/
+random.intInRange = function(MIN,MAX)
+  return floor(random.next() * (floor(MAX) - ceil(MIN) + 1) + ceil(MIN))
+end
+//Taken from https://microstudio.dev/i/mrLman/gamesproglibrary/
+checkRectMouseHover = function(x, y, width, height)
+  local hover = true
+  if mouse.x < (x - width/2) then hover = false end
+  if mouse.x > (x + width/2) then hover = false end
+  if mouse.y < (y - height/2) then hover = false end
+  if mouse.y > (y + height/2) then hover = false end
+  return hover
+end
+// I created it for this project
+DashB = function()
+  if Coins >= 5 then
+    Coins -= 5
+    Dashes += 1
+  else
+    cursor.cx = true
+    cursor.xt.timer = 3
+  end
+end
+// I created it for this project
+DoubleJ = function()
+  if Coins >= 5 then
+    Coins -= 5
+    dJumps += 1
+  else
+    cursor.cx = true
+    cursor.xt.timer = 3
+  end
+end
+// I created it for this project
+SpellB = function()
+  if Coins >= 15 and lives < 3 then
+    Coins -= 10
+    lives += 1
+  else
+    cursor.cx = true
+    cursor.xt.timer = 3
+  end
+end
+// I created it for this project
+SpeedB = function()
+  if Coins >= 10 and speedIn == false then
+    Coins -= 15
+    speedIn = true
+  else
+    cursor.cx = true
+    cursor.xt.timer = 3
+  end
+end
+// I created it for this project
+Play = function()
+  Init()
+  mode = "game"
+  gameOver = 0
+end
+
+//Timer writen by MrBoi
+//https://microstudio.dev/i/MrBoi/classtimer/
+Timer = class
+  constructor = function(t)
+    this.timer = t
+    this.stop_timer = false
+  end
+  
+  update = function()
+    if stop_timer == false then
+      timer-=1/60
+    end
+    
+    if timer < 0 then
+       timer = 0
+    end
+  end
+  
+  CheckTimer = function()
+    if timer <= 0 then
+      return 1
+    else
+      return 0
+    end
+  end
+  
+  restart = function()
+    timer = t
+  end
+  
+  stop = function()
+    stop_timer = true
+  end
+  
+  start = function()
+    stop_timer = false
+  end
+end
+
+GameOver = function()
+  screen.clear()
+  screen.drawMap("bg",0,0,screen.width,screen.height)
+  screen.drawMap("gameover",0,-10,screen.width/1.2,screen.height/1.2)
+  screen.setRadialGradient(0,0,600,"rgb(101,227,227)","rgb(19,170,170)")
+
+  if gameOver == 1 and keyboard.press.R then
+    gameOver = 0
+    init()
+  end
+end
+
+dif_ind = object
+  init = function()
+    x = 160
+    y = 85
+    
+    sname = "dif"
+  end
+  
+  update = function()
+    if dif == "easy" then
+      sprites[sname].setFrame(1)
+    elsif dif == "medium" then
+      sprites[sname].setFrame(2)
+    elsif dif == "hard" then
+      sprites[sname].setFrame(3)
+    end
+  end
+  
+  draw = function()
+    screen.drawSprite("dif",x,y,24,24)
+  end
+end
+
+UIinit = function()
+  dashB = new button(-60,85,16,16,"dash_power",DashB)
+  djB = new button(-30,85,16,16,"double_jump",DoubleJ)
+  spellB = new button(60,85,16,16,"spell_power",SpellB)
+  speedB = new button(30,85,16,16,"speed_power",SpeedB)
+  
+  dif_ind.init()
+  
+  cursor = new cursor()
+  
+end
+
+UI = function()
+  screen.drawText(Coins,-80,85,10,"rgb(170,170,19)")
+  screen.drawSprite("coin",-100,85,16)
+  screen.drawText(Dashes,-45,83,10,"rgb(0,198,0)")
+  screen.drawText(dJumps,-15,83,10,"rgb(170,76,76)")
+  dashB.draw()
+  djB.draw()
+  spellB.draw()
+  speedB.draw()
+  dif_ind.draw()
+  cursor.draw()
+end
+
+UIupdate = function()
+  dashB.update()
+  djB.update()
+  spellB.update()
+  speedB.update()
+  cursor.update()
+  dif_ind.update()
+end
+
+
+MeniuUpdate = function()
+  if mouse.press then
+    Play()
+  end
+end
+
+MeniuDraw = function()
+  screen.clear()
+  screen.drawMap("bg",0,0,screen.width,screen.height)
+  screen.drawText("Press any mouse button to start",0,-50,16,"rgb(184,111,80)")
+  screen.drawText("Bob's Nightmare",0,50,32,"rgb(170,94,57)")
+  screen.drawSprite("player_hurt",175,70,80)
+end
+
+button = class
+  constructor = function(Tx,Ty,Twidth,Theight,,Tsname,Tevent)
+    this.x = Tx
+    this.y = Ty
+    
+    this.width = Twidth
+    this.height = Theight
+    
+    this.click = false
+    
+    this.Hover = false
+    
+    this.sname = Tsname
+    
+    this.Event = Tevent
+    
+  end
+  
+  update = function()
+    if checkRectMouseHover(x,y,width,height) then
+      Hover = true
+      sprites[sname].setFrame(0)
+    else
+      Hover = false
+      sprites[sname].setFrame(1)
+    end
+    
+    if Hover == true and mouse.press then
+      click = true 
+    else
+      click = false
+    end
+    
+    if click == true then
+      local e = Event
+      e()
+    end
+  end
+  
+  draw = function()
+    screen.drawSprite(sname,x,y,width,height)
+  end
+end
+
+cursor = class
+  constructor = function()
+    this.x = 0
+    this.y = 0
+    
+    this.size = 16
+    
+    this.sname = "cursor"
+  
+    this.cx = false
+  
+    this.xt = new Timer(3)
+  
+  end
+
+  CursorX = function()
+    if xt.CheckTimer() then
+      cx = false
+    end
+  
+    if cx == true then
+      sname = "cursor_x"
+      size = 8
+    else
+      sname = "cursor"
+      size = 16
+    end
+  end
+
+  update = function()
+    local mx = mouse.x
+    local my = mouse.y
+    
+    x = mx
+    y = my
+    
+    xt.update()
+    
+    CursorX()
+  end
+  
+  draw = function()
+    screen.drawSprite(sname,x,y,size)
+    screen.setCursorVisible(false)
+  end
+end
+
+my_music = audio.playMusic("hardrock")
+my_music.setVolume(50)
+my_music.play(true)
+
+
+</script></html>
